@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _jumpForce;
     [SerializeField] private Transform _transform;
     public AnimationCurve curve;
-
+    public Animator _animator;
     private void Awake()
     {
         PrimeTweenConfig.validateCustomCurves = false;
@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
         bool jump = true;
         while (jump)
         {
+            _animator.SetTrigger("Jump");
             Tween.PositionY(_transform, endValue: _jumpForce, duration: timer, curve);
             yield return new WaitForSeconds(timer);
         }
