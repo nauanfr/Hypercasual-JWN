@@ -15,13 +15,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _transform;
     public AnimationCurve curve;
     public Animator _animator;
+    private GameOver gameOverScript;
 
     private void Awake()
     {
         PrimeTweenConfig.validateCustomCurves = false;
         StartCoroutine(Jump());
+        gameOverScript = FindObjectOfType<GameOver>();
     }
-    
+
     IEnumerator Jump()
     {
         bool jump = true;
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
             {
                 // CHAMAR OS BOTÕES DE RETRY
                 // Clicou no Retry, ele REINICIA a cena ATUAL
+                gameOverScript.GameOverPanel();
                 Debug.Log("Errou");
             }
         }
