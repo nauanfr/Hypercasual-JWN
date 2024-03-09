@@ -120,3 +120,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   teste: {fileID: 5113881563381776514}
+  _material: {fileID: 0}
+  type: 0

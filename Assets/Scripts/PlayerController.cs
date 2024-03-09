@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 public class PlayerController : MonoBehaviour
 {
 
+
     [SerializeField] private float timer;
     public int currentType;
     [SerializeField] private Rigidbody _controller;
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _transform;
     public AnimationCurve curve;
     public Animator _animator;
+
     private void Awake()
     {
         PrimeTweenConfig.validateCustomCurves = false;
@@ -35,12 +37,16 @@ public class PlayerController : MonoBehaviour
     {
         if (other.tag.Equals("Platform"))
         {
-            if (other.GetComponent<PlatformMovement>().type.Equals(currentType))
+            if (other.GetComponent<PlatformMovement>()._type.Equals(currentType))
             {
                 Debug.Log("Acertou");
             }
             else
+            {
+                // CHAMAR OS BOTÕES DE RETRY
+                // Clicou no Retry, ele REINICIA a cena ATUAL
                 Debug.Log("Errou");
+            }
         }
     }
 }
