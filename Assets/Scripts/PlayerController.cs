@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 public class PlayerController : MonoBehaviour
 {
 
-    [SerializeField] private int timer;
+    [SerializeField] private float timer;
     public int currentType;
     [SerializeField] private Rigidbody _controller;
     [SerializeField] private float _jumpForce;
