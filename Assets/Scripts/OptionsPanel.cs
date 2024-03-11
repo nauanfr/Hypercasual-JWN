@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
-public class GameOver : MonoBehaviour
+public class OptionsPanel : MonoBehaviour
 {
-    public GameObject panelGameOver;
+    public GameObject optionsPanel;
+
+    private bool isPaused = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +23,12 @@ public class GameOver : MonoBehaviour
 
     }
 
-    public void GameOverPanel()
+    public void TogglePauseMenu()
     {
-        panelGameOver.SetActive(true);
-        Debug.Log("GameOver");
+        isPaused = !isPaused;
+        optionsPanel.SetActive(isPaused);
+        Time.timeScale = isPaused ? 0 : 1;
     }
 
-    public void Retry()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Debug.Log("Retry!!!!!!!");
-    }
+
 }
